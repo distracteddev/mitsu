@@ -1,6 +1,16 @@
 jQuery(document).ready(function ($) {
 
-	/* Use this js doc for all application specific JS */
+	move('#box1')
+		.to(300)
+		.duration('2s')
+		.end(function () {
+			move('#box1')
+			.set('height', 700)
+			.set('width', 600)
+			.end()
+		})
+	;
+
 
 	/* TABS --------------------------------- */
 	/* Remove if you don't need :) */

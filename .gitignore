@@ -1,0 +1,6 @@
+/public/.sass-cache/*
+/public/.sass-cache/*/*
+/public/.sass-cache/**
+.DS_Store
+*.sassc
+**.sassc

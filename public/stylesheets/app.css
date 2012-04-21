@@ -1,4 +1,24 @@
 /* line 1, ../sass/app.scss */
 .box {
   background-color: black;
+  float: left;
+  border: 5px solid gray;
+}
+
+/* line 7, ../sass/app.scss */
+#box1 {
+  height: 400px;
+  width: 200px;
+}
+
+/* line 12, ../sass/app.scss */
+#box2 {
+  height: 300px;
+  width: 300px;
+}
+
+/* line 17, ../sass/app.scss */
+#box3 {
+  height: 300px;
+  width: 500px;
 }
