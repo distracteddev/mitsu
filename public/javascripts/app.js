@@ -17,6 +17,13 @@ jQuery(document).ready(function ($) {
     return {x:x, y:y};
     
   };
+
+
+  move("#up").to(0,52).rotate(135).end();
+  move("#back").to(52).rotate(45).end();
+  move("#down").to(0,-52).rotate(315).end();
+  move("#markers").set('height','0px').rotate(90).end();
+
   console.log(getTargetPosition());
 
   function getOffsetToTarget(el) {
@@ -78,7 +85,12 @@ jQuery(document).ready(function ($) {
       .set('left', '8%')
       .delay('.4s')
       .duration(250)
-      .end();
+      .end(function() {
+          move("#up").delay(500).to(0,0).rotate(135).end();
+          move("#back").delay(500).to(0).rotate(45).end();
+          move("#down").delay(500).to(0,0).rotate(315).end();
+          move("#markers").delay(500).set('height','22px').rotate(90).end();
+      });
   };
 
 

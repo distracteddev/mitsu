@@ -93,6 +93,7 @@ header {
   color: #ddd;
   h4 {
     color: #ddd;
+    font-size: 16px;
     margin-bottom: 15px;
   }
   p {
@@ -102,4 +103,37 @@ header {
   left: -100%;
   top: 25%;
   width: 125px;
+}
+
+.nav-arrow {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -120px;
+  left: 40px;
+  border: 1px solid #eee;
+  border-top: none;
+  border-right: none;
+}
+
+#up {
+  top: -148px;
+}
+
+#down {
+  top: -92px;
+}
+
+#back {
+  left: 10px;
+  border-color: red;
+}
+
+
+#markers {
+  font-size: 30px;
+  position: absolute;
+  top: -118px;
+  left: 44px;
+  overflow: hidden;
 }
