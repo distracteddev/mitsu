@@ -1,16 +1,111 @@
 jQuery(document).ready(function ($) {
 
-	move('#box1')
-		.to(300)
-		.duration('2s')
-		.end(function () {
-			move('#box1')
-			.set('height', 700)
-			.set('width', 600)
-			.end()
-		})
-	;
+  window.ctn = $("#grid-ctn");
+  // Used to save the selected grid-image's original size
+  var origHeight, origWidth, selectedImg;
 
+  function randomXToY(minVal,maxVal,floatVal) {
+    var randVal = minVal+(Math.random()*(maxVal-minVal));
+    return typeof floatVal=='undefined'?Math.round(randVal):randVal.toFixed(floatVal);
+  };
+
+  function getTargetPosition() {
+    // Return the coordinates of the center of the container
+    // offset by some vertical distance from the top.
+    var x = ctn.width()/2;
+    var y = 150;
+    return {x:x, y:y};
+    
+  };
+  console.log(getTargetPosition());
+
+  function getOffsetToTarget(el) {
+    el = $(el);
+    var x = el.position().left + el.width()/2;
+    var y = el.position().top;
+    var pos = getTargetPosition();
+    x = pos.x - x;
+    y = pos.y - y;
+    return {x:x, y:y};
+  };
+
+  var hide = function (elm) {
+   // $(elm).hide();
+  };
+
+  var reset = function() {
+    $('.box').show();
+    $('.box').each(function() {
+      move(this)
+        .to(0)
+        .set('left',0)
+        .scale(1)
+        .end();
+    });
+//    move(selectedImg)
+//      .set('height', origHeight)
+//      .set('width', origWidth)
+//    .end();
+  };
+
+  var flyout = function() {
+    selectedImg = this;
+    $('.box').not(this).each(function(el) {
+        var dur = randomXToY(2,5)*100;
+        if (el % 2 == 0)
+          move(this).set('left',1500).duration(dur).end(hide(this));
+        else
+          move(this).set('left',-1500).duration(dur).end(hide(this));
+    });
+    var x = getOffsetToTarget(this).x;
+    var y = getOffsetToTarget(this).y;
+    // Save the elements original dimensions for when we need to reset the animation
+    origHeight = $(this).height();
+    origWidth = $(this).width();
+    // Move the selected image to the center of it's designated position
+    move(this).to(x,y)
+      .then()
+        // After the element has reached its target position, expand it by 30%
+        //.set("width",origWidth*1.3)
+        //.set("height",origHeight*1.3)
+        .set('border-color','#eee')
+        .set('border-width','0px')
+        .scale(1.3)
+        .duration(200)
+        .pop()
+      .end();
+    move("#item-description")
+      .set('left', '8%')
+      .delay('.4s')
+      .duration(250)
+      .end();
+  };
+
+
+  var exp1 = function () {
+    move('#box1')
+      .to(300)
+      .duration('2s')
+      .end(function () {
+        move('#box1')
+        .scale(1.5)
+        .end()
+      });
+
+    move("#box2")
+      .to(-700)
+      .end(function(el) {
+        $(el).hide();
+        console.log(el);
+      });
+  };
+
+
+$(".box").click(flyout);
+
+$("#run").click(exp1);
+$("#flyout").click(flyout);
+$("#reset").click(reset);
 
 	/* TABS --------------------------------- */
 	/* Remove if you don't need :) */

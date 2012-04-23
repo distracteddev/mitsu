@@ -1,20 +1,105 @@
+body {
+  background: #111;
+  * {box-sizing: border-box;}
+}
+
 .box {
-  background-color: black;
+  background-color: #ccc;
   float: left;
-  border: 5px solid gray;
+  border: 4px solid #eee;
+  position: relative;
+  margin: 2px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+  }
 }
 
 #box1 {
-	height: 400px;
-	width: 200px;
+	height: 562px;
+	width: 370px;
+  background: transparent;
 }
 
-#box2 {
-	height: 300px;
-	width: 300px;
+#box7 {
+	height: 412px;
+	width: 390px;
+  float: right;
 }
 
 #box3 {
+	height: 204px;
+	width: 204px;
+}
+
+#box4 {
+	height: 400px;
+	width: 300px;
+  clear: left;
+}
+
+#box5 {
 	height: 300px;
-	width: 500px;
+	width: 460px;
+}
+
+#box6 {
+	height: 300px;
+	width: 204px;
+}
+
+#box2 {
+  height: 204px;
+  width: 204px;
+}
+
+#box8 {
+  height: 146px;
+  width: 598px;
+}
+
+.row {
+  border: 2px #444 solid;
+  background: #444;
+}
+
+header {
+  background: #232323;
+  width: 100.0%;
+  height: 34px;
+  box-sizing: content-box;
+  border-left: 2px solid #232323;
+  border-right: 2px solid #232323;
+  left: -2px;
+  top: -2px;
+  position: relative;
+  margin-bottom: 2px;
+  color: white;
+  font-weight: bold;
+  p {padding-top: 8px; padding-left: 20px;}
+  position: relative;
+  ul {
+    margin-bottom: 2px;
+    li {
+      float: left;
+    }
+  }
+}
+
+#item-description {
+  //display: none;
+  color: #ddd;
+  h4 {
+    color: #ddd;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 11px;
+  }
+  position: absolute;
+  left: -100%;
+  top: 25%;
+  width: 125px;
 }
