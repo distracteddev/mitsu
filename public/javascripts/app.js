@@ -41,18 +41,29 @@ jQuery(document).ready(function ($) {
   };
 
   var reset = function() {
-    $('.box').show();
-    $('.box').each(function() {
-      move(this)
-        .to(0)
-        .set('left',0)
-        .scale(1)
-        .end();
-    });
-//    move(selectedImg)
-//      .set('height', origHeight)
-//      .set('width', origWidth)
-//    .end();
+    // Reset the navigation controls
+    move("#up").to(0,52).rotate(135).end();
+    move("#back").to(52).rotate(45).end();
+    move("#down").to(0,-52).rotate(315).end();
+    move("#markers").set('height','0px').rotate(90).end();
+    // Reset the image grid
+    var resetBoxes = function() { 
+      $('.box').show();
+      $('.box').each(function() {
+        move(this)
+          .delay(500)
+          .set('left',0)
+          .scale(1)
+          .end();
+      });
+    };
+    // Move item description off the screen
+    move("#item-description").set('left','-100%').end(resetBoxes);
+    // Re-Apply a border to the previously selected image
+    move(selectedImg)
+      .delay(1000)
+      .set('border-width', '4px')
+    .end();
   };
 
   var flyout = function() {
@@ -60,37 +71,38 @@ jQuery(document).ready(function ($) {
     $('.box').not(this).each(function(el) {
         var dur = randomXToY(2,5)*100;
         if (el % 2 == 0)
-          move(this).set('left',1500).duration(dur).end(hide(this));
+          move(this).set('left',2500).duration(dur).end(hide(this));
         else
-          move(this).set('left',-1500).duration(dur).end(hide(this));
+          move(this).set('left',-2500).duration(dur).end(hide(this));
     });
     var x = getOffsetToTarget(this).x;
     var y = getOffsetToTarget(this).y;
     // Save the elements original dimensions for when we need to reset the animation
-    origHeight = $(this).height();
-    origWidth = $(this).width();
+    // origHeight = $(this).height();
+    // origWidth = $(this).width();
     // Move the selected image to the center of it's designated position
+    var showDescription = function () { 
+      move("#item-description")
+        .set('left', '8%')
+        .delay('.4s')
+        .duration(250)
+        .end(function() {
+            move("#up").delay(500).to(0,0).rotate(135).end();
+            move("#back").delay(500).to(0).rotate(45).end();
+            move("#down").delay(500).to(0,0).rotate(315).end();
+            move("#markers").delay(500).set('height','22px').rotate(90).end();
+      });
+    };    
     move(this).to(x,y)
       .then()
         // After the element has reached its target position, expand it by 30%
         //.set("width",origWidth*1.3)
         //.set("height",origHeight*1.3)
-        .set('border-color','#eee')
         .set('border-width','0px')
         .scale(1.3)
         .duration(200)
         .pop()
-      .end();
-    move("#item-description")
-      .set('left', '8%')
-      .delay('.4s')
-      .duration(250)
-      .end(function() {
-          move("#up").delay(500).to(0,0).rotate(135).end();
-          move("#back").delay(500).to(0).rotate(45).end();
-          move("#down").delay(500).to(0,0).rotate(315).end();
-          move("#markers").delay(500).set('height','22px').rotate(90).end();
-      });
+      .end(showDescription);
   };
 
 
@@ -117,7 +129,7 @@ $(".box").click(flyout);
 
 $("#run").click(exp1);
 $("#flyout").click(flyout);
-$("#reset").click(reset);
+$("#back").click(reset);
 
 	/* TABS --------------------------------- */
 	/* Remove if you don't need :) */
