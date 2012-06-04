@@ -17,6 +17,78 @@ jQuery(document).ready(function ($) {
     return {x:x, y:y};
     
   };
+ 
+  
+  $(".item").each(function(idx) { 
+/*
+	  var width;
+	  width = ((idx+1)*200) % 300;
+	  var mod  = width % 200;
+	  width = width + (200 - mod );
+	  //console.log(width, mod);
+	  $(this).width(width-4);
+	  
+	  var height;
+	  height = ((idx+(Math.random()*3)*200)) % 400;
+	  var mod = height % 200;
+	  height = height + (200 - mod);
+	  console.log(height, width);
+	  $(this).height(height-4);
+*/
+	//  console.log($(this).height());
+	
+	var hw = function(h,w, el) {
+		console.log(h,w);
+		$(el).height(h).width(w-4);
+	}
+	
+	switch (idx) {
+		case 0:
+			hw(200,300,this)
+			break;
+		case 1:
+			hw(400,300,this)
+			break;
+		case 2:
+			hw(200,300,this);
+			break;
+		case 3:
+			hw(100,300,this);
+			break;
+		case 4:
+			hw(400,300,this);
+			break;
+		case 5:
+			hw(500,300,this);
+			break;			
+		case 6:
+			hw(400,200,this);
+			break;			
+		case 7:
+			hw(400,90,this);
+			break;
+		case 8:
+			hw(100,300,this);
+			break;
+		case 9:
+			hw(300,300,this);
+			break;
+		case 9:
+			hw(300,300,this);
+			break;
+	}
+	
+	
+   })
+   
+   
+  $("#img-container").isotope({
+  	itemSelector: '.item',
+  	layoutMode: 'masonry',
+  	masonry: {
+	  	columnWidth: 300
+  	}
+  });   
 
 
   move("#up").to(0,52).rotate(135).end();
