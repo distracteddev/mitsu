@@ -1,0 +1,21 @@
+{
+  "author": "Zeus Lalkaka <lalkaka.zeus@gmail.com>",
+  "name": "mitsu",
+  "description": "A Personal Portfolio Project",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/distracteddev/mitsu.git"
+  },
+  "dependencies": {
+    "flatiron": "*",
+    "union": "*",
+    "resourceful": "*",
+    "connect": "git://github.com/senchalabs/connect.git"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

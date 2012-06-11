@@ -41,12 +41,12 @@
   <script src="javascripts/move.js"></script>
 	<script src="javascripts/jquery.min.js"></script>
 	<script src="javascripts/jquery.isotope.min.js"></script>
-  <script src="javascripts/can.jquery-1.0.5.js"></script>
-  <script src="javascripts/can.app.js"></script>
+  <script src="javascripts/ember-0.9.8.1.js"></script>
+  <script src="javascripts/ember.app.js"></script>
   <script>
     var ctn = $("#container");
     var i = 40;
-    var base = 150;
+    var base = 160;
     var makeBox = window.box = function(i) {
         var h;
         var w;
@@ -177,7 +177,7 @@
           .scale(1.3)
           .duration(200)
           .pop()
-        .end(window.showDetails);
+        .end(showDetails);
     };
 
     $('.item').click(flyout);
@@ -187,10 +187,10 @@
     move("#markers").set('height','0px').rotate(90).end();
     var x = getTargetPosition($("#item-description")).x;
     
-    window.showDetails = function() {
+    showDetails = function() {
       var offset = selectedWidth/2
       console.log(offset, "<-- Offset");
-      // x is the distance to center if this element was wat (0,0).
+      // x is the distance to center if this element was at (0,0).
       // Since the "details" start at (-400,0), we add 0.
       // The -200 is for the width of the details itself.
       // offset is the width of the currently selected element divided by 2.
@@ -218,8 +218,8 @@
             .set('left',0)
             .scale(1)
             .end();
-          $("#container").isotope('reLayout');
         });
+        $("#container").isotope('reLayout');
       };
       // Move item description off the screen
       move("#item-description").to(0,0).end(resetBoxes);
@@ -229,7 +229,7 @@
   	  itemSelector: '.item',
   	  layoutMode: 'masonry',
   	  masonry: {
-	    	columnWidth: base
+	    	columnWidth: 2
     	}
     });
 
