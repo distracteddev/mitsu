@@ -37,11 +37,13 @@ var makeBox = function(i) {
     }
 
     h = h + 50;
+    //h+= Math.round(Math.random()*30);
+    //w+= Math.round(Math.random()*30);
    
     var p = new(Project)({
       title: "Test Project " + i,
       caption: "Caption Test " + i,
-      img_url: "http://placekitten.com/" + w + "/" + w,
+      img_url: "http://placekitten.com/" + w + "/" + h,
       height: h,
       width: w 
     }).save();

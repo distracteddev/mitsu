@@ -9,8 +9,8 @@ app.router.post('/test', function() {
   self.res.end(JSON.stringify(self.req.body));
 });
 
-var createPaths = function(name, resource) {
 
+var createPaths = function(name, resource) {  
   app.router.path(name, function() {
     
     // GET resource
@@ -94,9 +94,9 @@ var createPaths = function(name, resource) {
 
 Object.keys(app.resources).forEach(function(key) {
   var resource = app.resources[key].model;
-  var name = pluralize(resource._resource).toLowerCase();
+  var name = resource._resource.toLowerCase();  
   app.log.info(name);
-  createPaths(name, resource);
+  createPaths(pluralize(name), resource);
 
 });
 

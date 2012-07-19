@@ -11,7 +11,8 @@
     "flatiron": "*",
     "union": "*",
     "resourceful": "*",
-    "connect": "git://github.com/senchalabs/connect.git"
+    "connect": "git://github.com/senchalabs/connect.git",
+    "node-static": "*"
   },
   "devDependencies": {},
   "optionalDependencies": {},

@@ -1,11 +1,29 @@
 var flatiron = require('flatiron')
   , app = flatiron.app
+  , static = require('node-static')
   , util = require('util')
 
 
-app.use(flatiron.plugins.http);
+var fileServer = new static.Server('../public');
+
+app.use(flatiron.plugins.http, {
+  before: [
+    function(req, res) {
+      req.addListener('end', function() {
+        fileServer.serve(req, res, function(err, result) {
+          if (err) {
+            app.log.error("Error Serving " + req.url + " - " + err.message);
+            res.emit('next');
+          }
+        });
+      });
+    }
+  ],
+  after: [],
+});
 app.use(flatiron.plugins.log);
 app.use(flatiron.plugins.resourceful, {dir: __dirname + "/resources"});
+
 
 // Load the test data for development
 var testData = require('./test-data');
@@ -19,7 +37,7 @@ var inspect = app.inspect = function(o, m) {
 }
 
 // Default header for this app
-app.http.headers["Content-Type"] = "application/json";
+//app.http.headers["Content-Type"] = "application/json";
 
 inspect(Object.keys(app.resources), "Resources");
 

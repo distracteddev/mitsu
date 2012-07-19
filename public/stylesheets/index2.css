@@ -124,21 +124,21 @@ body {
 /* line 119, ../sass/index2.scss */
 .item {
   margin: 5px;
-  opacity: 0.7;
   overflow: hidden;
 }
 
-/* line 125, ../sass/index2.scss */
+/* line 124, ../sass/index2.scss */
 .hover {
-  position: relative;
+  position: absolute;
   height: 40px;
   display: block;
-  z-index: 4;
-  left: 0px;
+  /*margin-top: 2px;*/
+  width: 100%;
   background: #fff;
+  opacity: .8;
 }
 
-/* line 136, ../sass/index2.scss */
+/* line 134, ../sass/index2.scss */
 #item-description {
   position: absolute;
   height: 400px;
@@ -151,7 +151,7 @@ body {
   padding-left: 10px;
 }
 
-/* line 148, ../sass/index2.scss */
+/* line 146, ../sass/index2.scss */
 .nav-arrow {
   width: 25px;
   height: 25px;
@@ -163,27 +163,27 @@ body {
   border-right: none;
   z-index: 10;
 }
-/* line 159, ../sass/index2.scss */
+/* line 157, ../sass/index2.scss */
 .nav-arrow:hover {
   border-color: red;
 }
 
-/* line 165, ../sass/index2.scss */
+/* line 163, ../sass/index2.scss */
 #up {
   top: -148px;
 }
 
-/* line 169, ../sass/index2.scss */
+/* line 167, ../sass/index2.scss */
 #down {
   top: -92px;
 }
 
-/* line 173, ../sass/index2.scss */
+/* line 171, ../sass/index2.scss */
 #back {
   left: 10px;
 }
 
-/* line 177, ../sass/index2.scss */
+/* line 175, ../sass/index2.scss */
 #markers {
   position: relative;
   left: -45px;
@@ -192,24 +192,24 @@ body {
   letter-spacing: 4px;
   overflow: hidden;
 }
-/* line 186, ../sass/index2.scss */
+/* line 184, ../sass/index2.scss */
 #markers .selected-marker {
   color: red;
 }
-/* line 190, ../sass/index2.scss */
+/* line 188, ../sass/index2.scss */
 #markers span {
   margin: -3px;
   background-color: transparent;
 }
 
-/* line 197, ../sass/index2.scss */
+/* line 195, ../sass/index2.scss */
 #arrows {
   position: relative;
   left: 40px;
   top: 50px;
 }
 
-/* line 204, ../sass/index2.scss */
+/* line 202, ../sass/index2.scss */
 header {
   width: 100%;
   background: #444;
@@ -217,7 +217,7 @@ header {
   height: 30px;
   display: block;
 }
-/* line 211, ../sass/index2.scss */
+/* line 209, ../sass/index2.scss */
 header h1 {
   letter-spacing: 1px;
   padding: 5px;
@@ -225,7 +225,7 @@ header h1 {
   font-weight: 500;
 }
 
-/* line 219, ../sass/index2.scss */
+/* line 217, ../sass/index2.scss */
 #container {
   position: relative;
   background: #000;
