@@ -13,6 +13,7 @@
     <h1>Mitsuaki Yajima</h1>
   </header>
   <section id="container">
+    
     <section id="item-description">
       <div id="arrows">
         <div class="nav-arrow" id="up"></div>
@@ -31,6 +32,7 @@
       <hr/>
       <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
     </section>
+    
     <script type="text/x-handlebars">
       {{#each App.projects}}
       <div class="item" {{bindAttr style="style"}}>
@@ -43,11 +45,6 @@
     </script>
 	</section>
 	
-
-  <!--<script>-->
-    <!--document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');-->
-  <!--</script> -->
-  <script src="http://localhost:35729/livereload.js?snipver=1"></script>
   <script src="javascripts/move.js"></script>
 	<script src="javascripts/jquery.min.js"></script>
 	<script src="javascripts/jquery.isotope.min.js"></script>
@@ -58,196 +55,6 @@
   <script src="javascripts/ember-data.js"></script>
   <script src="javascripts/ember.app.js"></script>
 
-  <!--<script>-->
-    <!--var ctn = $("#container");-->
-    <!--var i = 40;-->
-    <!--var base = 160;-->
-    <!--var makeBox = window.box = function(i) {-->
-        <!--var h;-->
-        <!--var w;-->
-        <!--if ((((i*3)+2) % 4) === 0) {-->
-          <!--h = (base * 2) - 10;-->
-          <!--w = h;-->
-          <!--if (Math.random() > .5) w = base - 10;-->
-          <!--//console.log("ELSE: ",h,w);-->
-        <!--}-->
-        <!--else if (((i*6+2) % 4) === 0) {-->
-          <!--h = base - 10;-->
-          <!--w = (base * 2) -10;-->
-          <!--//console.log("ELSE IF: ",h,w);-->
-        <!--}-->
-        <!--else {-->
-          <!--h = base - 10;-->
-          <!--w = base - 10;-->
-          <!--//console.log("ELSE: ",h,w);-->
-        <!--}-->
 
-        <!--h = h + 50;-->
-
-        <!--var div = $("<div>", {-->
-          <!--"class": "item",-->
-          <!--"css": {-->
-            <!--"width": w + "px",-->
-            <!--"height": h + "px",-->
-            <!--"background-color":"gray"-->
-          <!--}-->
-        <!--});-->
-
-        <!--var hover = $("<div>", {-->
-          <!--"class": "hover",-->
-          <!--"css": {-->
-            <!--"top": (h) + "px",-->
-          <!--}-->
-        <!--});-->
-        
-        <!--div.append(hover);-->
-
-        <!--return div;-->
-     <!--}-->
-
-
-<!--//   while (i>0) {-->
-<!--//      i---->
-<!--//      makeBox(i).appendTo(ctn);-->
-<!--//    }-->
-
-
-
-    <!--function bindHover() {-->
-      <!--$('.item').hover(function() {-->
-        <!--var el = $(this).children('.hover')-->
-        <!--move(el[0]).to(0,-40).end();-->
-
-        <!--},-->
-        <!--function() {-->
-          <!--var el = $(this).children('.hover')-->
-          <!--move(el[0]).to(0,0).end();-->
-        <!--}-->
-      <!--);-->
-      <!--$('.item').click(flyout);-->
-    <!--};-->
-    
-    <!--bindHover();-->
-
-    <!--function randomXToY(minVal,maxVal,floatVal) {-->
-      <!--var randVal = minVal+(Math.random()*(maxVal-minVal));-->
-      <!--return typeof floatVal=='undefined'?Math.round(randVal):randVal.toFixed(floatVal);-->
-    <!--};-->
-    
-    <!--function getTargetPosition(el) {-->
-      <!--// Return the coordinates of the center of the container-->
-      <!--// offset by some vertical distance from the top.-->
-      <!--el_width = $(el).width();-->
-      <!--var x = ctn.width()/2;-->
-      <!--x-= el_width/2;-->
-      <!--var y = 150;-->
-      <!--console.log(x, y, el_width);-->
-      <!--return {x:x, y:y};-->
-    <!--};-->
-
-    <!--function getOffsetToTarget(el) {-->
-      <!--el = $(el);-->
-      <!--var x = el.position().left + el.width()/2;-->
-      <!--var y = el.position().top;-->
-      <!--var pos = getTargetPosition();-->
-      <!--x = pos.x - x;-->
-      <!--y = pos.y - y;-->
-      <!--return {x:x, y:y};-->
-    <!--};-->
-
-  
-    <!--var selectedWidth;-->
-    <!--var selectedImg;-->
-
-
-    <!--var flyout = function() {-->
-      <!--selectedImg = this;-->
-      <!--selectedWidth = $(this).width();-->
-      <!--var el = $(this).children('.hover')-->
-      <!--move(el[0]).to(0,0).end();-->
-      <!--$(this).unbind('hover');-->
-      <!--$(this).unbind('click');-->
-      <!--var t = setTimeout(function() {-->
-        <!--$("#back, body").click(reset);-->
-        <!--console.log("I ran");-->
-      <!--},1000);-->
-      <!--$('.item').not(this).each(function(el) {-->
-          <!--var dur = randomXToY(2,5)*100;-->
-          <!--if (el % 2 == 0)-->
-            <!--move(this).set('left',2500).duration(dur).end();-->
-          <!--else-->
-            <!--move(this).set('left',-2500).duration(dur).end();-->
-          <!--});-->
-
-      <!--var x = getTargetPosition(this).x;-->
-      <!--selectedWidth = $(this).width();-->
-      <!--console.log(selectedWidth, "<-- Sel Pos");-->
-      <!--var y = getTargetPosition(this).y;-->
-      <!--move(this).to(x,y)-->
-        <!--.then()-->
-          <!--// After the element has reached its target position, expand it by 30%-->
-          <!--//.set("width",origWidth*1.3)-->
-          <!--//.set("height",origHeight*1.3)-->
-          <!--.set('border-width','0px')-->
-          <!--.scale(1.3)-->
-          <!--.duration(200)-->
-          <!--.pop()-->
-        <!--.end(showDetails);-->
-    <!--};-->
-
-    <!--$('.item').click(flyout);-->
-    <!--move("#up").to(0,52).rotate(135).end();-->
-    <!--move("#back").to(52).rotate(45).end();-->
-    <!--move("#down").to(0,-52).rotate(315).end();-->
-    <!--move("#markers").set('height','0px').rotate(90).end();-->
-    <!--var x = getTargetPosition($("#item-description")).x;-->
-    
-    <!--showDetails = function() {-->
-      <!--var offset = selectedWidth/2-->
-      <!--console.log(offset, "<-- Offset");-->
-      <!--// x is the distance to center if this element was at (0,0).-->
-      <!--// Since the "details" start at (-400,0), we add 0.-->
-      <!--// The -200 is for the width of the details itself.-->
-      <!--// offset is the width of the currently selected element divided by 2.-->
-      <!--move("#item-description").to(x+400-200-offset,0).end(function() {-->
-        <!--move("#up").delay(500).to(0,-10).rotate(135).end();-->
-        <!--move("#back").delay(500).to(-10).rotate(45).end();-->
-        <!--move("#down").delay(500).to(0,10).rotate(315).end();-->
-        <!--move("#markers").delay(500).to(-4,-11).set('height','22px').rotate(90).end();-->
-      <!--});-->
-    <!--}-->
-
-    <!--reset = function() {-->
-      <!--// Reset the navigation controls-->
-      <!--bindHover();-->
-      <!--$("#back, body").unbind("click");-->
-      <!--move("#up").to(0,52).rotate(135).end();-->
-      <!--move("#back").to(52).rotate(45).end();-->
-      <!--move("#down").to(0,-52).rotate(315).end();-->
-      <!--move("#markers").set('height','0px').rotate(90).end();-->
-      <!--// Reset the image grid-->
-      <!--var resetBoxes = function() { -->
-          <!--$('.item').each(function() {-->
-          <!--move(this)-->
-            <!--.delay(500)-->
-            <!--.set('left',0)-->
-            <!--.scale(1)-->
-            <!--.end();-->
-        <!--});-->
-        <!--$("#container").isotope('reLayout');-->
-      <!--};-->
-      <!--// Move item description off the screen-->
-      <!--move("#item-description").to(0,0).end(resetBoxes);-->
-    <!--};-->
-
-  <!--/*  $("#container").isotope({-->
-      <!--itemSelector: '.item',-->
-      <!--layoutMode: 'masonry',-->
-      <!--masonry: {-->
-				<!--columnWidth: 2-->
-      <!--}-->
-    <!--}); */-->
-
-	<!--</script>-->
 </body>
 </html>
